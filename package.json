@@ -44,6 +44,10 @@
   },
   "homepage": "https://github.com/zhzLuke96/rh-atomic-css#readme",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
   "engines": {
     "npm": "!use pnpm",
     "yarn": "!use pnpm"
