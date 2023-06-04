@@ -8,7 +8,9 @@
     <script type="importmap">
       {
         "imports": {
-          "@rhjs/rh": "https://unpkg.com/@rhjs/rh@latest/dist/main.module.mjs",
+          "@rhjs/core": "https://unpkg.com/@rhjs/rh@latest/dist/main.module.mjs",
+          "@rhjs/builtin": "https://unpkg.com/@rhjs/builtin@latest/dist/main.module.mjs",
+          "@rhjs/tag": "https://unpkg.com/@rhjs/tag@latest/dist/main.module.mjs",
           "@rhjs/atomic-css": "./dist/main.module.mjs"
         }
       }
@@ -17,7 +19,9 @@
   <body>
     <div id="app"></div>
     <script type="module">
-      import { rh, mount, createState, html, Scope } from "@rhjs/rh";
+      import { rh, mount, createState } from "@rhjs/core";
+      import { Scope } from "@rhjs/builtin";
+      import { html } from "@rhjs/tag";
       import { enable, atomicDirective } from "@rhjs/atomic-css";
 
       atomicDirective.key = "$class";

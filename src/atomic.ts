@@ -1,11 +1,11 @@
-import { useContextProxy } from "@rhjs/rh";
 import {
+  useContextProxy,
   createEffect,
   DirectiveDefine,
   disableDirective,
   enableDirective,
-  getRootNode,
-} from "@rhjs/rh";
+} from "@rhjs/core";
+import { getRootNode } from "@rhjs/builtin";
 
 import { twind, Twind, TwindUserConfig } from "@twind/core";
 import presetAutoprefix from "@twind/preset-autoprefix";
