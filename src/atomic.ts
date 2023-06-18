@@ -137,7 +137,8 @@ export const atomicDirective: DirectiveDefine = {
 
     const { cleanup } = createEffect(() => {
       const className = tw(tokens);
-      const isChanged = changed(className, elem.className);
+      // don't replace `prevClassNames.join(" ")` to `elem.className`, because svg API doesn't support className to string
+      const isChanged = changed(className, prevClassNames.join(" "));
       if (!isChanged) {
         return;
       }
