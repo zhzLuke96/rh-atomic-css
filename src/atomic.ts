@@ -164,7 +164,11 @@ export const atomicDirective: DirectiveDefine = {
       refDown(tw);
     };
   },
-};
+} as const;
 
-export const enable = () => enableDirective(atomicDirective);
-export const disable = () => disableDirective(atomicDirective.key);
+export const enable = (key = atomicDirective.key) =>
+  enableDirective({
+    ...atomicDirective,
+    key,
+  });
+export const disable = (key = atomicDirective.key) => disableDirective(key);
