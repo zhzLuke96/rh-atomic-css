@@ -166,9 +166,20 @@ export const atomicDirective: DirectiveDefine = {
   },
 } as const;
 
+/**
+ * enable atomic directives on current context
+ *
+ * default key is `$atomic`
+ */
 export const enable = (key = atomicDirective.key) =>
   enableDirective({
     ...atomicDirective,
     key,
   });
+
+/**
+ * disable atomic directives on current context
+ *
+ * default key is `$atomic`
+ */
 export const disable = (key = atomicDirective.key) => disableDirective(key);
