@@ -1,7 +1,7 @@
 {
   "name": "@rhjs/atomic-css",
   "amdName": "rh-atomic-css",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "source": "src/main.ts",
   "main": "dist/main.umd.js",
