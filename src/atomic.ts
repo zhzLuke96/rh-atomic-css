@@ -1,11 +1,11 @@
 import {
   useContextProxy,
-  createEffect,
   DirectiveDefine,
   disableDirective,
   enableDirective,
 } from "@rhjs/core";
 import { getRootNode } from "@rhjs/builtin";
+import { createEffect } from "@rhjs/hooks";
 
 import { twind, Twind, TwindUserConfig } from "@twind/core";
 import presetAutoprefix from "@twind/preset-autoprefix";
@@ -34,7 +34,9 @@ export const defaultConfig: TwindUserConfig = {
  * @returns are they different
  */
 function changed(a: string, b: string): boolean {
-  return a != b && "" + a.split(" ").sort() != "" + b.split(" ").sort();
+  return (
+    a != b && a.split(" ").sort().join(" ") != b.split(" ").sort().join(" ")
+  );
 }
 
 const atomicConfigSymbol = Symbol("atomic-css-config");

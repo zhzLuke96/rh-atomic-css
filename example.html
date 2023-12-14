@@ -8,8 +8,9 @@
     <script type="importmap">
       {
         "imports": {
-          "@rhjs/core": "https://unpkg.com/@rhjs/rh@latest/dist/main.module.mjs",
+          "@rhjs/core": "https://unpkg.com/@rhjs/core@latest/dist/main.module.mjs",
           "@rhjs/builtin": "https://unpkg.com/@rhjs/builtin@latest/dist/main.module.mjs",
+          "@rhjs/hooks": "https://unpkg.com/@rhjs/hooks@latest/dist/main.module.mjs",
           "@rhjs/tag": "https://unpkg.com/@rhjs/tag@latest/dist/main.module.mjs",
           "@rhjs/atomic-css": "./dist/main.module.mjs"
         }
@@ -19,13 +20,13 @@
   <body>
     <div id="app"></div>
     <script type="module">
-      import { rh, mount, createState } from "@rhjs/core";
+      import { rh, mount } from "@rhjs/core";
+      import { createState } from "@rhjs/hooks";
       import { Scope } from "@rhjs/builtin";
       import { html } from "@rhjs/tag";
-      import { enable, atomicDirective } from "@rhjs/atomic-css";
+      import * as AtomicCss from "@rhjs/atomic-css";
 
-      atomicDirective.key = "$class";
-      enable();
+      AtomicCss.enable("$class");
 
       const LoginPage = () => {
         return () =>
@@ -120,7 +121,13 @@
 
       const App = () => {
         return () =>
-          rh("div", {}, rh("p", {}, "example:"), rh(Scope, {}, rh(LoginPage)));
+          rh(
+            "div",
+            {},
+            rh("p", {}, "example:"),
+            rh(Scope, {}, rh(LoginPage))
+            // rh(LoginPage)
+          );
       };
 
       mount("#app", App);
