@@ -8,7 +8,6 @@ css in js + atomic
 
 ```ts
 import { rh, mount } from "@rhjs/core";
-import { Scope } from "@rhjs/builtin";
 import { html } from "@rhjs/tag";
 import { enable } from "@rhjs/atomic-css";
 
@@ -23,7 +22,6 @@ mount("#app", app);
 
 ```ts
 import { rh, mount } from "@rhjs/core";
-import { Scope } from "@rhjs/builtin";
 import { html } from "@rhjs/tag";
 import { enable, setAtomicConfig } from "@rhjs/atomic-css";
 
