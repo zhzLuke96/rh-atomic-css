@@ -7,21 +7,24 @@ css in js + atomic
 ## default
 
 ```ts
-import { rh, mount, html, Scope } from "@rhjs/rh";
+import { rh, mount } from "@rhjs/core";
+import { Scope } from "@rhjs/builtin";
+import { html } from "@rhjs/tag";
 import { enable } from "@rhjs/atomic-css";
 
-// inject to framework context
+// all default settings
 enable();
 
-const App = () => () =>
-  html`<div $class="font-bold text-gray-900">hello world</div>`;
-mount("#app", App);
+const app = html`<div $class="font-bold text-gray-900">hello world</div>`;
+mount("#app", app);
 ```
 
 ## custom configuration
 
 ```ts
-import { rh, mount, html, Scope } from "@rhjs/rh";
+import { rh, mount } from "@rhjs/core";
+import { Scope } from "@rhjs/builtin";
+import { html } from "@rhjs/tag";
 import { enable, setAtomicConfig } from "@rhjs/atomic-css";
 
 // inject config to context
@@ -29,12 +32,11 @@ setAtomicConfig({
     presets: [], // cover all preset (tailwind css)
     hash: false
 })
-// inject to framework context
-enable();
+// inject to framework context, and hook attribute `$class` (default: $atomic)
+enable("$class");
 
-const App = () => () =>
-  html`<div $class="font-bold text-gray-900">hello world</div>`;
-mount("#app", App);
+const app = html`<div $class="font-bold text-gray-900">hello world</div>`;
+mount("#app", app);
 ```
 
 # License

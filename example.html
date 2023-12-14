@@ -27,6 +27,10 @@
       import * as AtomicCss from "@rhjs/atomic-css";
 
       AtomicCss.enable("$class");
+      AtomicCss.setAtomicConfig({
+        // presets: [], // cover all preset (tailwind css)
+        hash: false,
+      });
 
       const LoginPage = () => {
         return () =>
